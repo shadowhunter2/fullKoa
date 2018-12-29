@@ -9,9 +9,6 @@ const path = require('path');
 const app = new Koa();
 const router = new Router();
 
-
-
-
 function logger() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

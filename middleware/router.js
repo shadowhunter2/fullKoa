@@ -34,6 +34,4 @@ class Router{
   }
 })
 
-let r = new Router();
-
 module.exports = Router;
