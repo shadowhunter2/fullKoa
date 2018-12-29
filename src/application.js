@@ -42,7 +42,7 @@ class Koa extends EventEmitter{
     res.statusCode = 404;
     let promise =this.compose(ctx)
     promise.then( () => {
-      console.log('body');
+      console.log('中间件全部走完');
       let body = ctx.body;
       if(typeof body === 'undefined'){
         res.end('not found')
@@ -58,6 +58,8 @@ class Koa extends EventEmitter{
       else{
         res.end(''+ body)
       }
+    }, (err) => {
+      this.emit('error', err)
     })
   }
 

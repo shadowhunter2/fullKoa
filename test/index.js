@@ -1,5 +1,6 @@
 const Koa = require('../src/application');
 const Router = require('../middleware/router')
+const bodyParser = require('../middleware/bodyparser')
 
 // const Koa = require('koa');
 // const Router = require('koa-router');
@@ -17,20 +18,38 @@ function logger() {
   })
 }
 
+app.use( async (ctx, next) => {
+  ctx.a =10
+  await next();
+})
+
+app.use(bodyParser())
+
+app.use(router.routes());
+
 router.get('/server',async (ctx, next) => {
   
   let num = await logger();
   console.log(num)
-  ctx.body = num
+  ctx.body = num + ctx.a
 })
 
-// app.use( async (ctx, next) => {
-//   // ctx.body = '2222'
-//   console.log(222)
-// })
+router.get('/add', async (ctx, next) => {
+  ctx.body = 'add'
+})
 
-app.use(router.routes());
+router.post('/add', async (ctx, next) => {
+  console.log(ctx.request.body)
+  ctx.body = 'add'
+})
 
+app.use( () => {
+  console.log('路由后面的中间件');
+})
+
+app.on('error', (err) => {
+  console.log('err', err)
+})
 
 app.listen(3000, () => {
   console.log('server on', 3000)

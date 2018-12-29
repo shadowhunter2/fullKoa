@@ -22,8 +22,8 @@ class Router{
       let routes = this._routes.filter( route => 
         route.method === ctx.method && ctx.path === route.path
       )
-      let p =await this.compose(routes, ctx, next);
-      console.log(p);
+      await this.compose(routes, ctx, next);
+      await next()
     }
   }
 }
