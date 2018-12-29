@@ -1,0 +1,30 @@
+{
+  "name": "fullKoa",
+  "version": "1.0.0",
+  "description": "> 集成了koa的和常用中间件",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowhunter2/fullKoa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shadowhunter2/fullKoa/issues"
+  },
+  "homepage": "https://github.com/shadowhunter2/fullKoa#readme",
+  "dependencies": {
+    "koa": "2.6.2",
+    "koa-router": "7.4.0",
+    "methods": "1.1.2",
+    "mime": "2.4.0"
+  }
+}
